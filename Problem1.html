@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Styles.css" />
     <title>Sum of Distinct Elements</title>
     <script>
-        function sumOfDistinctElements() {
-            const set1 = [3, 1, 7, 9];
-            const set2 = [2, 4, 1, 9, 3];
+      function sumOfDistinctElements() {
+        const set1 = [3, 1, 7, 9];
+        const set2 = [2, 4, 1, 9, 3];
 
-            const combined = set1.concat(set2);
-            const count = {};
-            combined.forEach(num => {
-                count[num] = (count[num] || 0) + 1;
-            });
+        const combined = set1.concat(set2);
+        const count = {};
+        combined.forEach((num) => {
+          count[num] = (count[num] || 0) + 1;
+        });
 
-            let sum = 0;
-            for (const [key, value] of Object.entries(count)) {
-                if (value === 1) {
-                    sum += parseInt(key);
-                }
-            }
-
-            document.getElementById('result1').innerText = `Sum of distinct elements: ${sum}`;
+        let sum = 0;
+        for (const [key, value] of Object.entries(count)) {
+          if (value === 1) {
+            sum += parseInt(key);
+          }
         }
+
+        document.getElementById(
+          "result1"
+        ).innerText = `Sum of distinct elements: ${sum}`;
+      }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+  </head>
+  <body
+    class="bg-red-500 flex flex-col items-center justify-center min-h-screen"
+  >
     <div class="bg-white shadow-md rounded-lg p-6 w-80">
-        <h1 class="text-xl font-bold mb-4 text-center text-blue-500">Problem 1</h1>
-        <p class="text-gray-700 mb-4">Given two sets of elements, find the sum of all distinct elements.</p>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="sumOfDistinctElements()">Calculate</button>
-        <p id="result1" class="mt-4 text-lg font-semibold text-gray-700"></p>
+      <h1 class="text-xl font-bold mb-4 text-center text-blue-500">
+        Problem 1
+      </h1>
+      <p class="text-gray-700 mb-4">
+        Given two sets of elements, find the sum of all distinct elements.
+      </p>
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        onclick="sumOfDistinctElements()"
+      >
+        Calculate
+      </button>
+      <p id="result1" class="mt-4 text-lg font-semibold text-gray-700"></p>
     </div>
-    <script src="./javascript.js"></script>
-</body>
+  </body>
 </html>
