@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Product & Orthogonality</title>
+    <script>
+        function dotProduct(v1, v2) {
+            let dot = 0;
+            for (let i = 0; i < v1.length; i++) {
+                dot += v1[i] * v2[i];
+            }
+            return dot;
+        }
+
+        function checkOrthogonality() {
+            const vectorPairs = [
+                [[1, 0], [0, 1]],
+                [[1, 2], [2, 4]],
+                [[3, -3], [-1, -1]]
+            ];
+
+            let results = '';
+            vectorPairs.forEach(([v1, v2]) => {
+                const dot = dotProduct(v1, v2);
+                if (dot === 0) {
+                    results += `Vectors [${v1}] and [${v2}] are <strong class="text-green-500">Orthogonal</strong>.<br>`;
+                } else {
+                    results += `Vectors [${v1}] and [${v2}] are <strong class="text-red-500">Not Orthogonal</strong>.<br>`;
+                }
+            });
+
+            document.getElementById('result2').innerHTML = results;
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-96">
+        <h1 class="text-xl font-bold mb-4 text-center text-purple-600">Problem 2</h1>
+        <p class="text-gray-700 mb-4">Check the orthogonality of vector pairs using the dot product.</p>
+        <button class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600" onclick="checkOrthogonality()">Calculate</button>
+        <div id="result2" class="mt-4 text-lg font-semibold text-gray-700"></div>
+    </div>
+</body>
+</html>
